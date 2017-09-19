@@ -6,7 +6,13 @@ import java.io.*;
  * @author Jamison Czech <A HREF="mailto:main@jamisonczech@gmail.com">
  * (jamisonczech@gmail.com) </A>
  */
+
+/**
+ * Class to choose a text file and then process file which
+ * creates an ordered linked list from chosen file.
+ */
 public class FileIO {
+   // file picker utilizing java swing
     public static String chooseFile() {
 
         JFileChooser chooser;
@@ -47,14 +53,23 @@ public class FileIO {
             oWriter = new FileWriter(oFile);
             oBuffer = new BufferedWriter(oWriter);
 
+            // Processes file, splits file line by and inserts into linked list
             for (lineNumber = 1; ; lineNumber++) {
                 iLine = iBuffer.readLine();
                 if (iLine == null)
                     break;
                 values = iLine.split(" +");
                 orderedList.addElement(new OrderedItem(values[0], Integer.parseInt(values[1]), null));
-
             }
+
+            // Display name and assignment number
+            String title = "Jamison Czech";
+            oBuffer.write(title);
+            oBuffer.newLine();
+            String assignmentNumber = "Assignment Two";
+            oBuffer.write(assignmentNumber);
+            oBuffer.newLine();
+            oBuffer.newLine();
 
             while (!(orderedList.isEmpty())) {
                 OrderedItem item = (OrderedItem) orderedList.remove();
@@ -64,11 +79,12 @@ public class FileIO {
 
                 String priority = "Priority = " + item.Priority;
                 oBuffer.write(priority);
-                
+
                 oBuffer.newLine();
                 oBuffer.newLine();
             }
 
+            // close input and output buffers
             iBuffer.close();
             oBuffer.close();
 

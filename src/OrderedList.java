@@ -9,11 +9,10 @@ import java.util.ListIterator;
 /**
  * Class to implement the items into the Linked List
  * it also Extends LinkedList class for added functionality.
+ *
  */
 public class OrderedList extends LinkedList {
-    private int size;
-    private OrderedItem head;
-    private OrderedItem tail;
+
 
     public boolean addElement(OrderedItem newItem) {
         ListIterator<OrderedItem> itr = listIterator();
@@ -22,7 +21,7 @@ public class OrderedList extends LinkedList {
             this.add(newItem);
             return true;
         }
-        
+
         while (true) {
             if (itr.hasNext() == false) {
                 itr.add(newItem);
