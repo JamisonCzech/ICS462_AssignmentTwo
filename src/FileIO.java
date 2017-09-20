@@ -63,14 +63,22 @@ public class FileIO {
             }
 
             // Display name and assignment number
+            String titleName = "Output File";
+            oBuffer.write(titleName);
+
+            oBuffer.newLine();
+            oBuffer.newLine();
             String title = "Jamison Czech";
+
             oBuffer.write(title);
             oBuffer.newLine();
+
             String assignmentNumber = "Assignment Two";
             oBuffer.write(assignmentNumber);
             oBuffer.newLine();
             oBuffer.newLine();
 
+            // Remove object from linked list and output to file
             while (!(orderedList.isEmpty())) {
                 OrderedItem item = (OrderedItem) orderedList.remove();
                 String name = "Name = " + item.Name;

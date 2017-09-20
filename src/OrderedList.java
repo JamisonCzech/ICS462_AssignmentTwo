@@ -11,7 +11,7 @@ import java.util.ListIterator;
  * it also Extends LinkedList class for added functionality.
  *
  */
-public class OrderedList extends LinkedList {
+public class OrderedList extends  LinkedList{
 
 
     public boolean addElement(OrderedItem newItem) {
